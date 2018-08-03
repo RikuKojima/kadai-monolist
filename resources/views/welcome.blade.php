@@ -1,3 +1,4 @@
+<!--外部APIの利用法を学ぶ-->
 @extends('layouts.app')
 
 @section('cover')
@@ -12,6 +13,6 @@
 @endsection
 
 @section('content')
-    <!--app.blade.phpのcontentに-->
+    <!--app.blade.phpのcontentに代入-->
     テスト
 @endsection

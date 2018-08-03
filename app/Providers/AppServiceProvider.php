@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //bootはモデルの初期化専用メソッド
+        \Schema::defaultStringLength(191);
     }
 
     /**
