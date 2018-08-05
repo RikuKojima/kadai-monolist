@@ -15,5 +15,7 @@
 @endsection
 
 @section('content')
-    テスト
+    <!--itemを表示-->
+    @include('items.items')
+    {!! $items->render() !!} 
 @endsection

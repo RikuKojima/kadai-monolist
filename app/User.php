@@ -26,4 +26,49 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function items() {
+        return $this->belongsToMany(Item::class)->withPivot('type')->withTimestamps();
+    }
+    
+    public function want_items() {
+        return $this->items()->where('type','want');
+    }
+    
+    //wantしているかどうかの判定
+    public function is_wanting($itemIdOrCode) {
+        //$itemIdOrCodeが数値ならば
+        if (is_numeric($itemIdOrCode)) {
+            $item_id_exists = $this->want_items()->where('item_id',$itemIdOrCode);
+            return $item_id_exists;
+        }else {
+            $item_code_exist = $this->want_items()->where('item_code',$itemIdOrCode);
+            return $item_code_exist;
+        }
+    }
+    
+    public function want($itemId) {
+        // 既に Want しているかの確認
+        $exist = $this->is_wanting($itemId);
+
+        if ($exist) {
+            // 既に Want していれば何もしない
+            return false;
+        } else {
+            // 未 Want であれば Want する
+            $this->items()->attach($itemId, ['type' => 'want']);
+            return true;
+        }
+    }
+    
+    public function dont_want($itemId) {
+        
+        //wantしているか
+        $exist = $this->is_wanting($itemId);
+        
+        if($exist){
+            \DB::delete("DELETE FROM item_user WHERE user_id = ? AND item_id = ? AND type = 'want'", [$this->id, $itemId]);
+        }else{
+            return false;
+        }
 }
