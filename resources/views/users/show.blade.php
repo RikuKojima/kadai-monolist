@@ -8,18 +8,21 @@
         <div class="name text-center">
             <h1>{{ $user->name }}</h1>
         </div>
+        <!--ユーザの履歴表示-->
         <div class="status text-center">
             <ul>
+                <!--wantの表示-->
                 <li>
                     <div class="status-label">WANT</div>
                     <div id="want_count" class="status-value">
                         {{ $count_want }}
                     </div>
                 </li>
+                <!--haveの表示-->
                 <li>
                     <div class="status-label">HAVE</div>
                     <div id="have_count" class="status-value">
-                        xxx
+                        {{ $count_have }}
                     </div>
                 </li>
             </ul>

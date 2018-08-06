@@ -1,3 +1,3 @@
-<footer><footer>
-         <div<div  classclass==""text-center text-mutedtext-center text-muted"">>© 2016 MONOLIST.© 2016 MONOLIST.</div></div>
- </footer></footer>
+<footer>
+         <div class="text-center text-mutedtext-center text-muted">© 2016 MONOLIST.</div>
+</footer>
