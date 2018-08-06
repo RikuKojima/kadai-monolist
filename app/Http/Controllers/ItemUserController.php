@@ -47,7 +47,7 @@ class ItemUserController extends Controller
     }
     
     public function have() {
-        $itemCode = request->itemCode;
+        $itemCode = request()->itemCode;
         
         // itemCode から商品を検索
         $client = new \RakutenRws_Client();

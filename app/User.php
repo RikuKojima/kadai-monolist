@@ -34,6 +34,9 @@ class User extends Authenticatable
     public function want_items() {
         return $this->items()->where('type','want');
     }
+    public function have_items() {
+        return $this->items()->where('type','have');
+    }
     
     //wantしているかどうかの判定
     public function is_wanting($itemIdOrCode) {
@@ -79,7 +82,7 @@ class User extends Authenticatable
             $item_id_exists = $this->have_items()->where('item_id',$itemIdOrCode)->exists();
             return $item_id_exists;
         } else {
-            $item_code_exists = $this->have_items()->where('code'.$itemIdOrCode)->exists();
+            $item_code_exists = $this->have_items()->where('code',$itemIdOrCode)->exists();
             return $item_code_exists;
         }
     }

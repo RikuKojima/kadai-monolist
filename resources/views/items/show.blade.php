@@ -6,13 +6,14 @@
             <div class="item">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">
-                        <img src="{{ $item->image_url }}" alt="">
+                        <img src="{{ $item->image_url }}" class="img-responsive">
                     </div>
                     <div class="panel-body">
                         <p class="item-title">{{ $item->name }}</p>
                         <div class="buttons text-center">
                             @if (Auth::check())
                                 @include('items.want_button', ['item' => $item])
+                                @include('items.have_button',['item' => $item])
                             @endif
                         </div>
                     </div>
