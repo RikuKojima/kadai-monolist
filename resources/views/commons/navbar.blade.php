@@ -19,6 +19,18 @@
                                 アイテムを追加
                               </a>
                         </li>
+                        <!--ランキング-->
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span ></span class="glyphicon glyphicon-signal" aria-hidden="true">
+                                ランキング
+                                <span></span class="caret">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('ranking.want') }}">Wantランキング</a></li>
+                                <li><a href="{{ route('ranking.have') }}">Haveランキング</a></li>
+                            </ul>
+                        </li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
